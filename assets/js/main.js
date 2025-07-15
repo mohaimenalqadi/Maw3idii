@@ -12,11 +12,19 @@ document.addEventListener('DOMContentLoaded', function () {
   function updateNavbarAuth() {
     if (!links) return;
     const user = localStorage.getItem('user');
-    // إخفاء أزرار الدخول/التسجيل وإظهار الملف الشخصي
+    
+    // Navbar Links
     const loginBtn = links.querySelector('a[href="login.html"]');
     const signupBtn = links.querySelector('a[href="signup-customer.html"], a.cta');
     let profileBtn = links.querySelector('.profile-link');
+
+    // Footer Links
+    const footer = document.querySelector('.footer');
+    const footerLogin = footer ? footer.querySelector('a[href="login.html"]') : null;
+    const footerSignup = footer ? footer.querySelector('a[href="signup-customer.html"]') : null;
+
     if (user) {
+      // Navbar
       if (loginBtn) loginBtn.style.display = 'none';
       if (signupBtn) signupBtn.style.display = 'none';
       if (!profileBtn) {
@@ -24,12 +32,19 @@ document.addEventListener('DOMContentLoaded', function () {
         li.innerHTML = `<a href="profile.html" class="profile-link"><span class="profile-icon">👤</span>  ${JSON.parse(user).name}</a>`;
         links.appendChild(li);
       } else {
-        profileBtn.style.display = '';
+        profileBtn.parentElement.style.display = '';
       }
+      // Footer
+      if (footerLogin) footerLogin.parentElement.style.display = 'none';
+      if (footerSignup) footerSignup.parentElement.style.display = 'none';
     } else {
+      // Navbar
       if (loginBtn) loginBtn.style.display = '';
       if (signupBtn) signupBtn.style.display = '';
       if (profileBtn) profileBtn.parentElement.style.display = 'none';
+      // Footer
+      if (footerLogin) footerLogin.parentElement.style.display = '';
+      if (footerSignup) footerSignup.parentElement.style.display = '';
     }
   }
   updateNavbarAuth();
@@ -50,7 +65,7 @@ document.addEventListener('DOMContentLoaded', function () {
   const workers = [
     { id: 1, name: "علي الورفلي", city: "طرابلس", specialty: "نجار", price: 65, rating: 4.9, img: "assets/img/W1.jpg", times: ["الأحد صباحاً", "الثلاثاء مساءً"], verified: true, reviewsCount: 145, jobsCompleted: 112, responseTime: "3 ساعات" },
     { id: 2, name: "سامي المقرحي", city: "بنغازي", specialty: "كهربائي", price: 50, rating: 4.8, img: "assets/img/W2.jpg", times: ["الإثنين صباحاً", "الأربعاء مساءً"], verified: true, reviewsCount: 120, jobsCompleted: 95, responseTime: "ساعتين" },
-    { id: 3, name: "هدى الفيتوري", city: "مصراتة", specialty: "عاملة نظافة", price: 30, rating: 4.9, img: "assets/img/W3.jpg", times: ["الخميس صباحاً", "السبت مساءً"], verified: true, reviewsCount: 98, jobsCompleted: 67, responseTime: "ساعتان" }
+    { id: 3, name: "احمد الفيتوري", city: "مصراتة", specialty: "عاملة نظافة", price: 30, rating: 4.9, img: "assets/img/W3.jpg", times: ["الخميس صباحاً", "السبت مساءً"], verified: true, reviewsCount: 98, jobsCompleted: 67, responseTime: "ساعتان" }
   ];
 
   // Helper: تحديد نوع القسم الحالي من اسم الصفحة
@@ -457,7 +472,7 @@ document.addEventListener('DOMContentLoaded', function () {
       </section>
       <section class="provider-video">
         <h3 class="provider-section-title">فيديو تعريفي</h3>
-        <video src="assets/video/D1.mp4" controls class="provider-video-element"></video>
+        <video src="assets/video/D1.mp4" controls poster="assets/img/icon.png" aria-label="فيديو تعريفي عن ${provider.name}" class="provider-video-element"></video>
       </section>
       <section class="provider-schedule">
         <h3 class="provider-section-title">جدول المواعيد</h3>

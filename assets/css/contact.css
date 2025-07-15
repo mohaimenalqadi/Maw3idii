@@ -54,7 +54,7 @@ feat: add contact.css for contact page styles (Arabic RTL, flex)
   gap: 1em;
 }
 .contact-field {
-  flex: 1 1 120px;
+  flex: 1 1;
 }
 .contact-field-full {
   flex: 1 1 100%;
@@ -93,7 +93,7 @@ textarea {
   }
   .contact-row {
     flex-direction: column;
-    gap: 0.7em;
+    gap: 0;
   }
   .contact-field,
   .contact-field-full {

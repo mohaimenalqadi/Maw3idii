@@ -286,24 +286,25 @@ body[class*="provider-"] {
 .provider-content {
   background: #fff;
   border-radius: 1.5em;
-  padding: 2em 2.5em; /* Increased padding for better spacing */
+  padding: 2em 2.5em;
   flex: 1;
   display: flex;
   flex-direction: column;
   gap: 2.5em;
+  max-width: -webkit-fill-available;
 }
 
 .provider-section-title {
   color: var(--secondary);
-  font-size: 1.2em;
-  margin-bottom: 1em;
+  font-size: 1.3em;
+  margin: 0 0 0.8em 0;
   border-bottom: 2px solid var(--primary);
   display: inline-block;
-  padding-bottom: 0.3em;
+  padding-bottom: 0.4em;
 }
 
 .provider-bio-text {
-  line-height: 1.9;
+  line-height: 1.8;
   color: #555;
 }
 
@@ -315,7 +316,7 @@ body[class*="provider-"] {
 
 .provider-service-btn {
   background: linear-gradient(120deg, #f8faff 10%, #e3f0ff 100%);
-  border: 1px solid var(--primary-light);
+  border: 1px solid #eef;
   color: var(--primary);
   border-radius: 1.5em;
   padding: 0.4em 1.3em;
@@ -323,17 +324,20 @@ body[class*="provider-"] {
   cursor: default;
 }
 
-.provider-service-btn:hover {
-  color: white;
-}
-
 .provider-video-element {
   width: 100%;
   border-radius: 1em;
 }
 
+/* لجعل جدول المواعيد متجاوباً */
+.provider-schedule {
+  overflow-x: auto; /* يسمح بالتمرير الأفقي للجدول فقط */
+  -webkit-overflow-scrolling: touch;
+}
+
 .provider-schedule-table {
   width: 100%;
+  min-width: 500px; /* يضمن عدم انضغاط الجدول بشكل سيء */
   text-align: center;
   border-collapse: collapse;
 }
@@ -350,7 +354,7 @@ body[class*="provider-"] {
 }
 
 .provider-schedule-slot {
-  background: var(--primary-light);
+  background: #f0f8ff;
   color: var(--primary);
   padding: 0.3em 0.8em;
   border-radius: 0.5em;
@@ -451,7 +455,7 @@ body[class*="provider-"] {
 }
 
 /* -- Responsive Design -- */
-@media (max-width: 950px) {
+@media (max-width: 1050px) {
   .provider-layout {
     flex-direction: column;
   }
@@ -472,8 +476,93 @@ body[class*="provider-"] {
   }
   .provider-content {
     padding: 1.5em;
+    gap: 2em;
   }
   .review-form-card {
     padding: 1.5em;
+  }
+  .provider-section-title {
+    font-size: 1.15em;
+  }
+}
+
+@media (max-width: 480px) {
+  .provider-img-sidebar {
+    width: 90px;
+    height: 90px;
+  }
+
+  .provider-name-sidebar {
+    font-size: 1.2em;
+  }
+
+  .provider-rating-sidebar {
+    font-size: 1em;
+  }
+
+  .provider-specialty-sidebar,
+  .provider-city-sidebar {
+    font-size: 0.9em;
+  }
+
+  .provider-price-sidebar {
+    font-size: 1em;
+  }
+
+  .provider-book-btn-sidebar {
+    padding: 0.7em 0;
+    font-size: 1em;
+  }
+
+  .provider-sidebar-social {
+    padding-top: 1em;
+  }
+
+  .provider-social-title {
+    font-size: 0.9em;
+  }
+
+  .provider-social-item {
+    font-size: 0.85em;
+  }
+
+  .booking-modal-title {
+    font-size: 1.1em;
+  }
+
+  .booking-form-btns {
+    flex-direction: column;
+  }
+
+  .review-form-card h2 {
+    font-size: 1.5em;
+  }
+
+  .star-rating {
+    font-size: 22px;
+  }
+
+  .review-form-card select,
+  .review-form-card textarea {
+    padding: 0.8em 1em;
+  }
+
+  .review-form-card .cta-btn {
+    padding: 0.8em;
+    font-size: 1em;
+  }
+}
+
+@media (max-width: 480px) {
+  .provider-content {
+    padding: 1.5em 1em;
+  }
+  .bio-highlights {
+    flex-direction: column;
+    gap: 1.5em;
+    align-items: center;
+  }
+  .review-form-card {
+    padding: 1.5em 1em;
   }
 }

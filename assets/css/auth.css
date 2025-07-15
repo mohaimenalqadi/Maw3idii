@@ -9,6 +9,7 @@
   justify-content: flex-start;
   background: #fff;
   padding-top: 3em;
+  max-width: -webkit-fill-available;
 }
 .auth-form {
   background: #f8faff;
@@ -16,7 +17,7 @@
   box-shadow: var(--shadow);
   padding: 2.5em 2em 2em 2em;
   min-width: 320px;
-  max-width: 420px;
+  max-width: 550px;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -45,6 +46,7 @@
 .auth-form input[type="tel"],
 .auth-form input[type="password"],
 .auth-form input[type="file"],
+input[type="url"],
 .auth-form select {
   width: 100%;
   padding: 0.7em 1em;
@@ -73,6 +75,10 @@
   display: flex;
   gap: 1em;
   align-items: center;
+}
+
+.social-links-row {
+  max-width: 100%;
 }
 
 .auth-form textarea {
@@ -205,7 +211,7 @@
 @media (max-width: 576px) {
   .auth-form {
     min-width: unset;
-    max-width: 98vw;
+    max-width: -webkit-fill-available;
     padding: 1.2em 0.5em 1em 0.5em;
     gap: 0.7em;
   }
@@ -216,5 +222,14 @@
   .auth-form .cta-btn {
     font-size: 1em;
     padding: 0.7em 0;
+  }
+  .workhours-row {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .social-links-row {
+    display: flex;
+    flex-direction: column;
   }
 }
